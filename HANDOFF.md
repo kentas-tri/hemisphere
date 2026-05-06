@@ -73,6 +73,7 @@ Important files:
 - `src/components/LabHome.tsx`
 - `src/components/PageShell.astro`
 - `src/data/site.ts`
+- `public/images/brand/`
 - `src/pages/index.astro`
 - `src/pages/projects.astro`
 - `src/pages/systems.astro`
@@ -174,6 +175,7 @@ Footer links:
 - Added first-pass lower pages for projects, systems, notes, archive, and contact.
 - Updated homepage navigation from section anchors to real routes.
 - Refined archive direction: Hemisphere remains the current Creative Engineering Lab, while ROSSOLABEL is linked only through the legacy top page and WordPress archive.
+- Added lightweight abstract image assets under `public/images/brand/` for the hero decorative layer and ArchivePreview cards.
 
 ## Known Notes
 

@@ -13,7 +13,7 @@ import {
   Youtube
 } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { archives, builds, commandItems, notes, sitePath, socialLinks, stack } from '../data/site';
+import { archives, assetPath, builds, commandItems, notes, sitePath, socialLinks, stack } from '../data/site';
 
 const accentClass = {
   cyan: 'bg-signal-cyan',
@@ -44,7 +44,16 @@ function SectionHeader({
 function HeroConsole() {
   return (
     <section className="relative overflow-hidden border-b border-white/10">
-      <div className="mx-auto grid min-h-[86svh] w-full max-w-7xl gap-8 px-5 pb-10 pt-6 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-16 lg:pt-8">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <img
+          src={assetPath('/images/brand/hemisphere-field.svg')}
+          alt=""
+          decoding="async"
+          className="pointer-events-none absolute right-[-18rem] top-8 hidden w-[min(78vw,58rem)] opacity-[0.18] mix-blend-screen blur-[0.2px] sm:block lg:right-[-10rem] lg:top-0"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-graphite-950 to-transparent" />
+      </div>
+      <div className="relative z-10 mx-auto grid min-h-[86svh] w-full max-w-7xl gap-8 px-5 pb-10 pt-6 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-16 lg:pt-8">
         <header className="flex items-center justify-between lg:absolute lg:left-8 lg:right-8 lg:top-6">
           <a href={sitePath()} className="flex items-center gap-3" aria-label="Hemisphere home">
             <span className="grid size-9 place-items-center rounded-md border border-white/12 bg-white/[0.03]">
@@ -256,6 +265,26 @@ function ArchivePreview() {
               rel="noreferrer"
               className="group rounded-lg border border-white/10 bg-white/[0.025] p-4 transition hover:border-signal-cyan/45 hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-signal-cyan/50"
             >
+              <div className="mb-4 aspect-[16/9] overflow-hidden rounded-md border border-white/10 bg-graphite-950">
+                {item.image ? (
+                  <img
+                    src={assetPath(item.image)}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="size-full object-cover opacity-45 grayscale transition duration-300 group-hover:opacity-75 group-hover:grayscale-0"
+                  />
+                ) : (
+                  <div
+                    className="size-full opacity-40"
+                    style={{
+                      backgroundImage:
+                        'linear-gradient(90deg, rgba(244, 240, 232, 0.08) 1px, transparent 1px), linear-gradient(rgba(244, 240, 232, 0.08) 1px, transparent 1px)',
+                      backgroundSize: '28px 28px'
+                    }}
+                  />
+                )}
+              </div>
               <h3 className="font-mono text-sm text-stone-200">{item.title}</h3>
               <p className="mt-3 text-sm leading-6 text-stone-500">{item.detail}</p>
               <span className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500 group-hover:text-signal-cyan">

@@ -77,13 +77,15 @@ export const archives = [
     title: 'ROSSOLABEL Top Page',
     detail: 'The preserved front page for the earlier ROSSOLABEL / Hemisphere web presence.',
     href: 'https://www.rossolabel.com/',
-    label: 'Open legacy top'
+    label: 'Open legacy top',
+    image: '/images/brand/archive-legacy-top.svg'
   },
   {
     title: 'ROSSOLABEL WordPress',
     detail: 'The WordPress archive for older music, video, notes, and past activity.',
     href: 'https://www.rossolabel.com/wp/',
-    label: 'Open WordPress archive'
+    label: 'Open WordPress archive',
+    image: '/images/brand/archive-wordpress.svg'
   }
 ] as const;
 
@@ -98,4 +100,10 @@ export function sitePath(path = '/') {
   const base = import.meta.env.BASE_URL;
   const normalized = path.startsWith('/') ? path.slice(1) : path;
   return normalized ? `${base}${normalized.replace(/\/$/, '')}/` : base;
+}
+
+export function assetPath(path: string) {
+  const base = import.meta.env.BASE_URL;
+  const normalized = path.startsWith('/') ? path.slice(1) : path;
+  return `${base}${normalized}`;
 }

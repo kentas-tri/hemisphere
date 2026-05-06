@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-label="">
+  <defs>
+    <radialGradient id="glow" cx="64%" cy="28%" r="62%">
+      <stop offset="0" stop-color="#f4f0e8" stop-opacity="0.18"/>
+      <stop offset="0.45" stop-color="#7dd3fc" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#07080a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#f4f0e8" opacity="0.18"/>
+    </pattern>
+  </defs>
+  <rect width="720" height="420" rx="18" fill="#0d1014"/>
+  <rect width="720" height="420" rx="18" fill="url(#glow)"/>
+  <rect x="70" y="56" width="580" height="308" fill="url(#dots)" opacity="0.82"/>
+  <g fill="none" stroke="#f4f0e8" opacity="0.46">
+    <circle cx="360" cy="210" r="112" stroke-width="1.4"/>
+    <circle cx="360" cy="210" r="58" stroke-width="1" opacity="0.45"/>
+    <path d="M248 210h224M360 98c36 28 54 65 54 112s-18 84-54 112M360 98c-36 28-54 65-54 112s18 84 54 112" stroke-width="1"/>
+  </g>
+  <g fill="#f4f0e8">
+    <rect x="210" y="326" width="92" height="4" opacity="0.4"/>
+    <rect x="318" y="326" width="188" height="4" opacity="0.25"/>
+    <circle cx="492" cy="128" r="9" opacity="0.82"/>
+    <circle cx="360" cy="210" r="6" opacity="0.56"/>
+  </g>
+</svg>

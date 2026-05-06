@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-label="">
+  <defs>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#171b22"/>
+      <stop offset="1" stop-color="#07080a"/>
+    </linearGradient>
+    <pattern id="scan" width="1" height="5" patternUnits="userSpaceOnUse">
+      <path d="M0 0h1v1H0z" fill="#f4f0e8" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="720" height="420" rx="18" fill="url(#panel)"/>
+  <rect width="720" height="420" rx="18" fill="url(#scan)"/>
+  <g fill="none" stroke="#f4f0e8" stroke-width="1.2" opacity="0.4">
+    <rect x="82" y="78" width="556" height="264" rx="10"/>
+    <path d="M82 138h556M150 78v264M570 78v264"/>
+    <path d="M178 276c72-78 153-116 244-114 54 1 102 15 144 42"/>
+  </g>
+  <g fill="#f4f0e8">
+    <rect x="178" y="188" width="164" height="9" opacity="0.82"/>
+    <rect x="178" y="216" width="276" height="5" opacity="0.42"/>
+    <rect x="178" y="238" width="214" height="5" opacity="0.25"/>
+    <circle cx="566" cy="204" r="12" opacity="0.72"/>
+  </g>
+  <text x="178" y="174" fill="#f4f0e8" opacity="0.55" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" letter-spacing="4">ROSSOLABEL</text>
+</svg>
