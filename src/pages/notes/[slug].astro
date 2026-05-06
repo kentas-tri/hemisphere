@@ -17,11 +17,7 @@ const { note } = Astro.props;
 const { Content } = await render(note);
 
 const formatDate = (date: Date) =>
-  new Intl.DateTimeFormat('en', {
-    year: 'numeric',
-    month: 'long',
-    day: '2-digit'
-  }).format(date);
+  `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
 ---
 
 <BaseLayout title={`${note.data.title} | Hemisphere`} description={note.data.excerpt}>
