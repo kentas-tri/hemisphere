@@ -279,6 +279,7 @@ function Footer() {
             <a
               key={label}
               href={href}
+              target="_blank"
               rel={href.startsWith('http') ? 'noreferrer' : undefined}
               className="inline-flex h-10 items-center gap-2 rounded-md border border-white/10 px-3 text-sm text-stone-300 transition hover:border-signal-cyan/45 hover:text-stone-50 focus:outline-none focus:ring-2 focus:ring-signal-cyan/50"
             >

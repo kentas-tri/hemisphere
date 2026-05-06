@@ -19,6 +19,7 @@ import { socialLinks } from '../data/site';
         socialLinks.map((link) => (
           <a
             href={link.href}
+            target="_blank"
             rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
             class="group rounded-lg border border-white/10 bg-white/[0.025] p-5 transition hover:border-signal-cyan/45 hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-signal-cyan/50"
           >
