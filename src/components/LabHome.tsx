@@ -316,8 +316,8 @@ function ArchivePreview() {
 function Footer() {
   const links = [
     { label: 'GitHub', href: 'https://github.com/kentas-tri', icon: Github },
-    { label: 'X', href: 'https://x.com/kentas_tri', icon: RadioTower },
-    { label: 'YouTube', href: 'https://www.youtube.com/@kentas-tri', icon: Youtube },
+    { label: 'X', href: 'https://x.com/GuitarsKs', icon: RadioTower },
+    { label: 'YouTube', href: 'https://www.youtube.com/@ksguitars1520', icon: Youtube },
     { label: 'Mail', href: 'mailto:webmaster@rossolabel.com', icon: Mail }
   ];
 
