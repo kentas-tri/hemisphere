@@ -48,30 +48,6 @@ export const builds = [
 
 export const stack = ['Astro', 'React', 'Tailwind CSS', 'GitHub Actions', 'GitHub Pages', 'Codex'] as const;
 
-export const notes = [
-  {
-    date: '2026.05',
-    title: 'Designing a personal lab as a system surface',
-    tag: 'design',
-    excerpt:
-      'A personal site can behave less like a profile and more like an instrument panel for active thinking.'
-  },
-  {
-    date: '2026.05',
-    title: 'Static sites as durable infrastructure',
-    tag: 'infra',
-    excerpt:
-      'Static publishing keeps the public layer simple while leaving room for heavier systems behind the scenes.'
-  },
-  {
-    date: '2026.05',
-    title: 'AI-assisted documentation without losing authorship',
-    tag: 'workflow',
-    excerpt:
-      'The useful part is not automation alone; it is a repeatable loop for preserving intent between sessions.'
-  }
-] as const;
-
 export const archives = [
   {
     title: 'ROSSOLABEL Top Page',

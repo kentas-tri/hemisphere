@@ -13,7 +13,15 @@ import {
   Youtube
 } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { archives, assetPath, builds, commandItems, notes, sitePath, socialLinks, stack } from '../data/site';
+import { archives, assetPath, builds, commandItems, sitePath, socialLinks, stack } from '../data/site';
+
+export type HomeNote = {
+  date: string;
+  title: string;
+  tag: string;
+  excerpt: string;
+  href: string;
+};
 
 const accentClass = {
   cyan: 'bg-signal-cyan',
@@ -222,23 +230,29 @@ function SystemStack() {
   );
 }
 
-function NotesFeed() {
+function NotesFeed({ notes }: { notes: HomeNote[] }) {
   return (
     <section id="notes" className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8">
       <SectionHeader eyebrow="NotesFeed" title="Technical notes, design thinking, build logs" />
       <div className="divide-y divide-white/10 rounded-lg border border-white/10 bg-white/[0.025]">
-        {notes.map((note) => (
-          <article key={note.title} className="grid gap-3 p-5 sm:grid-cols-[7rem_1fr_auto] sm:items-center">
+        {notes.length > 0 ? notes.map((note) => (
+          <article key={note.href} className="grid gap-3 p-5 sm:grid-cols-[7rem_1fr_auto] sm:items-center">
             <time className="font-mono text-xs text-stone-500">{note.date}</time>
             <div>
-              <h3 className="text-base font-medium text-stone-100">{note.title}</h3>
+              <h3 className="text-base font-medium text-stone-100">
+                <a href={note.href} className="transition hover:text-signal-cyan">
+                  {note.title}
+                </a>
+              </h3>
               <p className="mt-2 text-sm leading-6 text-stone-500">{note.excerpt}</p>
             </div>
             <span className="w-fit rounded border border-white/10 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500">
               {note.tag}
             </span>
           </article>
-        ))}
+        )) : (
+          <div className="p-5 text-sm text-stone-500">No public notes yet.</div>
+        )}
       </div>
     </section>
   );
@@ -333,14 +347,14 @@ function Footer() {
   );
 }
 
-export default function LabHome() {
+export default function LabHome({ notes }: { notes: HomeNote[] }) {
   return (
     <main>
       <HeroConsole />
       <CommandPalette />
       <CurrentBuilds />
       <SystemStack />
-      <NotesFeed />
+      <NotesFeed notes={notes} />
       <ArchivePreview />
       <Footer />
     </main>

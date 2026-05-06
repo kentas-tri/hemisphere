@@ -73,8 +73,11 @@ Important files:
 - `src/components/LabHome.tsx`
 - `src/components/PageShell.astro`
 - `src/data/site.ts`
+- `src/content.config.ts`
+- `src/content/notes/`
 - `public/images/brand/`
 - `src/pages/index.astro`
+- `src/pages/notes/[slug].astro`
 - `src/pages/projects.astro`
 - `src/pages/systems.astro`
 - `src/pages/notes.astro`
@@ -134,6 +137,7 @@ The CommandPalette now links to real Astro routes with GitHub Pages-safe base pa
 - `/projects/`
 - `/systems/`
 - `/notes/`
+- `/notes/{slug}/`
 - `/archive/`
 - `/contact/`
 
@@ -176,6 +180,25 @@ Footer links:
 - Updated homepage navigation from section anchors to real routes.
 - Refined archive direction: Hemisphere remains the current Creative Engineering Lab, while ROSSOLABEL is linked only through the legacy top page and WordPress archive.
 - Added lightweight abstract image assets under `public/images/brand/` for the hero decorative layer and ArchivePreview cards.
+- Converted notes to Markdown content collection under `src/content/notes/` for Obsidian-authored article updates.
+
+## Notes Workflow
+
+Create or edit notes as Markdown files in `src/content/notes/`.
+
+Required frontmatter:
+
+```md
+---
+title: Note title
+date: 2026-05-06
+tag: note
+excerpt: One short summary shown on the notes index and homepage.
+draft: false
+---
+```
+
+Use `draft: true` for Obsidian drafts that should not be published.
 
 ## Known Notes
 
