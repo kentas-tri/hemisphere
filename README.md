@@ -27,5 +27,5 @@ npm run build
 The site is configured for GitHub Pages at:
 
 ```text
-https://kentas-tri.github.io/Hemisphere/
+https://kentas-tri.github.io/hemisphere/
 ```

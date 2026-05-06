@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://kentas-tri.github.io',
-  base: '/Hemisphere',
+  base: '/hemisphere',
   integrations: [react()],
   output: 'static'
 });
