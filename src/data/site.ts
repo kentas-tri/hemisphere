@@ -74,20 +74,16 @@ export const notes = [
 
 export const archives = [
   {
-    title: 'Music and visual releases',
-    detail: 'Albums, video works, and release-era notes from the older rossolabel.com surface.'
+    title: 'ROSSOLABEL Top Page',
+    detail: 'The preserved front page for the earlier ROSSOLABEL / Hemisphere web presence.',
+    href: 'https://www.rossolabel.com/',
+    label: 'Open legacy top'
   },
   {
-    title: 'Past web experiments',
-    detail: 'Legacy site structures, interface sketches, and small publishing tests.'
-  },
-  {
-    title: 'Vehicle and travel logs',
-    detail: 'Road records and field notes that belong in the archive rather than the main lab console.'
-  },
-  {
-    title: 'Legacy media notes',
-    detail: 'Context, credits, and preservation notes for work that predates the current site direction.'
+    title: 'ROSSOLABEL WordPress',
+    detail: 'The WordPress archive for older music, video, notes, and past activity.',
+    href: 'https://www.rossolabel.com/wp/',
+    label: 'Open WordPress archive'
   }
 ] as const;
 

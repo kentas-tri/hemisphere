@@ -120,7 +120,8 @@ Important files:
    - Placeholder for technical notes, design thinking, and build logs.
 
 6. ArchivePreview
-   - Music, video, and past projects are placed here quietly.
+   - ROSSOLABEL is presented only as the legacy archive layer.
+   - Archive links are limited to the preserved top page and WordPress archive.
 
 7. Footer
    - GitHub / X / YouTube / Mail
@@ -172,6 +173,7 @@ Footer links:
 - Added reusable lower-page shell in `src/components/PageShell.astro`.
 - Added first-pass lower pages for projects, systems, notes, archive, and contact.
 - Updated homepage navigation from section anchors to real routes.
+- Refined archive direction: Hemisphere remains the current Creative Engineering Lab, while ROSSOLABEL is linked only through the legacy top page and WordPress archive.
 
 ## Known Notes
 

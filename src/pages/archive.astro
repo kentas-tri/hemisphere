@@ -6,23 +6,38 @@ import { archives } from '../data/site';
 
 <BaseLayout
   title="Archive | Hemisphere"
-  description="Quiet archive layer for older music, video, web experiments, travel logs, and legacy media notes."
+  description="ROSSOLABEL archive links for the older Hemisphere web presence, WordPress, music, video, and past activity."
 >
   <PageShell
-    eyebrow="ArchiveLayer"
-    title="Past work, preserved without taking over"
-    description="The archive keeps older Hemisphere and rossolabel.com material reachable while the main surface moves toward creative engineering."
+    eyebrow="ROSSOLABEL Archive"
+    title="Legacy material, kept one layer down"
+    description="Hemisphere is the current creative engineering lab. ROSSOLABEL remains available as the archive for older music, video, notes, and past activity."
     activePath="/archive"
   >
-    <section class="mx-auto grid w-full max-w-7xl gap-4 px-5 py-10 sm:px-8 md:grid-cols-2">
-      {
-        archives.map((item) => (
-          <article class="rounded-lg border border-white/10 bg-white/[0.025] p-5">
-            <h2 class="font-mono text-base text-stone-100">{item.title}</h2>
-            <p class="mt-4 text-sm leading-7 text-stone-500">{item.detail}</p>
-          </article>
-        ))
-      }
+    <section class="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8">
+      <div class="mb-5 border-b border-white/10 pb-4">
+        <p class="font-mono text-xs uppercase tracking-[0.18em] text-signal-amber/90">External Archive</p>
+        <h2 class="mt-2 text-xl font-semibold text-stone-100">ROSSOLABEL access points</h2>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          archives.map((item) => (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              class="group rounded-lg border border-white/10 bg-white/[0.025] p-5 transition hover:border-signal-cyan/45 hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-signal-cyan/50"
+            >
+              <p class="font-mono text-xs uppercase tracking-[0.16em] text-stone-500">{item.label}</p>
+              <h3 class="mt-5 text-xl font-semibold text-stone-100">{item.title}</h3>
+              <p class="mt-4 text-sm leading-7 text-stone-500">{item.detail}</p>
+              <span class="mt-6 inline-flex break-all font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500 group-hover:text-signal-cyan">
+                {item.href}
+              </span>
+            </a>
+          ))
+        }
+      </div>
     </section>
   </PageShell>
 </BaseLayout>

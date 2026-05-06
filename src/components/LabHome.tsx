@@ -5,6 +5,7 @@ import {
   FileText,
   Github,
   Layers3,
+  Link2,
   Mail,
   RadioTower,
   Sparkles,
@@ -237,21 +238,31 @@ function NotesFeed() {
 function ArchivePreview() {
   return (
     <section id="archive" className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8">
-      <SectionHeader eyebrow="ArchivePreview" title="Legacy work held in a quieter layer" />
+      <SectionHeader eyebrow="ArchivePreview" title="ROSSOLABEL lives in the archive layer" />
       <div className="grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="rounded-lg border border-white/10 bg-graphite-900/70 p-5">
           <Layers3 className="mb-5 size-5 text-signal-amber" aria-hidden="true" />
           <p className="text-sm leading-7 text-stone-400">
-            Music, video, travel logs, and earlier experiments remain part of the system, but the front
-            surface now focuses on engineering practice.
+            ROSSOLABEL is preserved as the legacy archive for older music, video, notes, and past
+            activity. Hemisphere stays focused on the current creative engineering lab.
           </p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           {archives.map((item) => (
-            <div key={item.title} className="rounded-lg border border-white/10 bg-white/[0.025] p-4">
+            <a
+              key={item.title}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded-lg border border-white/10 bg-white/[0.025] p-4 transition hover:border-signal-cyan/45 hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-signal-cyan/50"
+            >
               <h3 className="font-mono text-sm text-stone-200">{item.title}</h3>
               <p className="mt-3 text-sm leading-6 text-stone-500">{item.detail}</p>
-            </div>
+              <span className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500 group-hover:text-signal-cyan">
+                {item.label}
+                <Link2 className="size-3.5" aria-hidden="true" />
+              </span>
+            </a>
           ))}
         </div>
       </div>
