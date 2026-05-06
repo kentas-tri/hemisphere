@@ -33,8 +33,15 @@ const formatDate = (date: Date) =>
           {formatDate(note.data.date)}
         </time>
         <span class="rounded border border-white/10 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500">
-          {note.data.tag}
+          {note.data.type}
         </span>
+        {
+          note.data.tags.map((tag) => (
+            <span class="rounded border border-white/10 px-2 py-1 font-mono text-[11px] text-stone-500">
+              #{tag}
+            </span>
+          ))
+        }
         <a href={sitePath('/notes')} class="ml-auto font-mono text-xs text-stone-500 transition hover:text-signal-cyan">
           Back to notes
         </a>

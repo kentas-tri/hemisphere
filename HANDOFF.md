@@ -190,10 +190,11 @@ Required frontmatter:
 
 ```md
 ---
-title: Note title
-date: 2026-05-06
-tag: note
-excerpt: One short summary shown on the notes index and homepage.
+title: "Note title"
+date: "2026-05-06"
+type: "decision-log"
+tags: ["Hemisphere", "Astro", "GitHub"]
+excerpt: "One short summary shown on the notes index and homepage."
 draft: false
 ---
 ```

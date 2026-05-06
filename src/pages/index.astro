@@ -10,7 +10,7 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft))
   .map((note) => ({
     date: `${note.data.date.getFullYear()}.${String(note.data.date.getMonth() + 1).padStart(2, '0')}`,
     title: note.data.title,
-    tag: note.data.tag,
+    type: note.data.type,
     excerpt: note.data.excerpt,
     href: sitePath(`/notes/${note.id}`)
   }));

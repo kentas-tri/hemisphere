@@ -18,7 +18,7 @@ import { archives, assetPath, builds, commandItems, sitePath, socialLinks, stack
 export type HomeNote = {
   date: string;
   title: string;
-  tag: string;
+  type: string;
   excerpt: string;
   href: string;
 };
@@ -247,7 +247,7 @@ function NotesFeed({ notes }: { notes: HomeNote[] }) {
               <p className="mt-2 text-sm leading-6 text-stone-500">{note.excerpt}</p>
             </div>
             <span className="w-fit rounded border border-white/10 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500">
-              {note.tag}
+              {note.type}
             </span>
           </article>
         )) : (
