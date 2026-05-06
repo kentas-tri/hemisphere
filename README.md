@@ -11,6 +11,15 @@ Private engineering lab for interfaces, automation, and media systems.
 - GitHub Pages
 - Codex
 
+## Routes
+
+- `/`
+- `/projects/`
+- `/systems/`
+- `/notes/`
+- `/archive/`
+- `/contact/`
+
 ## Development
 
 ```bash

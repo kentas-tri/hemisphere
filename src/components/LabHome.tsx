@@ -12,66 +12,7 @@ import {
   Youtube
 } from 'lucide-react';
 import type { ReactNode } from 'react';
-
-const basePath = import.meta.env.BASE_URL;
-
-const commandItems = [
-  { path: '/projects', label: 'Project index', status: 'active' },
-  { path: '/systems', label: 'Systems map', status: 'draft' },
-  { path: '/notes', label: 'Research notes', status: 'soon' },
-  { path: '/archive', label: 'Media archive', status: 'legacy' },
-  { path: '/contact', label: 'Contact channel', status: 'open' }
-];
-
-const builds = [
-  {
-    title: 'GitHub-based website renewal',
-    meta: 'Static publishing / information architecture',
-    accent: 'cyan'
-  },
-  {
-    title: 'AI-assisted documentation workflow',
-    meta: 'Capture, summarize, refine, ship',
-    accent: 'amber'
-  },
-  {
-    title: 'Media archive modernization',
-    meta: 'Legacy works, metadata, long-term retrieval',
-    accent: 'green'
-  },
-  {
-    title: 'Automation experiments',
-    meta: 'Small scripts for repetitive creative operations',
-    accent: 'cyan'
-  }
-];
-
-const stack = ['Astro', 'React', 'Tailwind CSS', 'GitHub Actions', 'GitHub Pages', 'Codex'];
-
-const notes = [
-  {
-    date: '2026.05',
-    title: 'Designing a personal lab as a system surface',
-    tag: 'design'
-  },
-  {
-    date: '2026.05',
-    title: 'Static sites as durable infrastructure',
-    tag: 'infra'
-  },
-  {
-    date: '2026.05',
-    title: 'AI-assisted documentation without losing authorship',
-    tag: 'workflow'
-  }
-];
-
-const archives = [
-  'Music and visual releases',
-  'Past web experiments',
-  'Vehicle and travel logs',
-  'Legacy media notes'
-];
+import { archives, builds, commandItems, notes, sitePath, socialLinks, stack } from '../data/site';
 
 const accentClass = {
   cyan: 'bg-signal-cyan',
@@ -104,14 +45,14 @@ function HeroConsole() {
     <section className="relative overflow-hidden border-b border-white/10">
       <div className="mx-auto grid min-h-[86svh] w-full max-w-7xl gap-8 px-5 pb-10 pt-6 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-16 lg:pt-8">
         <header className="flex items-center justify-between lg:absolute lg:left-8 lg:right-8 lg:top-6">
-          <a href={basePath} className="flex items-center gap-3" aria-label="Hemisphere home">
+          <a href={sitePath()} className="flex items-center gap-3" aria-label="Hemisphere home">
             <span className="grid size-9 place-items-center rounded-md border border-white/12 bg-white/[0.03]">
               <CircuitBoard className="size-4 text-signal-cyan" aria-hidden="true" />
             </span>
             <span className="font-mono text-xs uppercase tracking-[0.24em] text-stone-300">Hemisphere</span>
           </a>
           <a
-            href="#contact"
+            href={sitePath('/contact')}
             className="inline-flex h-9 items-center gap-2 rounded-md border border-white/12 px-3 text-sm text-stone-300 transition hover:border-signal-cyan/45 hover:text-stone-50 focus:outline-none focus:ring-2 focus:ring-signal-cyan/50"
           >
             <Mail className="size-4" aria-hidden="true" />
@@ -135,21 +76,21 @@ function HeroConsole() {
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#projects"
+              href={sitePath('/projects')}
               className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-stone-100 px-4 text-sm font-medium text-graphite-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-signal-cyan/60"
             >
               View Projects
               <ArrowRight className="size-4" aria-hidden="true" />
             </a>
             <a
-              href="#notes"
+              href={sitePath('/notes')}
               className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-white/12 px-4 text-sm font-medium text-stone-200 transition hover:border-signal-cyan/45 hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-signal-cyan/50"
             >
               <FileText className="size-4" aria-hidden="true" />
               Read Notes
             </a>
             <a
-              href="#contact"
+              href={sitePath('/contact')}
               className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-white/12 px-4 text-sm font-medium text-stone-200 transition hover:border-signal-amber/45 hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-signal-amber/50"
             >
               <Mail className="size-4" aria-hidden="true" />
@@ -209,7 +150,7 @@ function CommandPalette() {
         <nav className="divide-y divide-white/8" aria-label="Primary">
           {commandItems.map((item) => (
             <a
-              href={`#${item.path.slice(1)}`}
+              href={sitePath(item.path)}
               key={item.path}
               className="group grid grid-cols-[1fr_auto] items-center gap-4 px-4 py-4 transition hover:bg-white/[0.035] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-signal-cyan/50"
             >
@@ -247,6 +188,7 @@ function CurrentBuilds() {
             </div>
             <h3 className="text-lg font-semibold text-stone-100">{build.title}</h3>
             <p className="mt-2 text-sm leading-6 text-stone-500">{build.meta}</p>
+            <p className="mt-4 text-sm leading-6 text-stone-400">{build.summary}</p>
           </article>
         ))}
       </div>
@@ -278,7 +220,10 @@ function NotesFeed() {
         {notes.map((note) => (
           <article key={note.title} className="grid gap-3 p-5 sm:grid-cols-[7rem_1fr_auto] sm:items-center">
             <time className="font-mono text-xs text-stone-500">{note.date}</time>
-            <h3 className="text-base font-medium text-stone-100">{note.title}</h3>
+            <div>
+              <h3 className="text-base font-medium text-stone-100">{note.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-stone-500">{note.excerpt}</p>
+            </div>
             <span className="w-fit rounded border border-white/10 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500">
               {note.tag}
             </span>
@@ -303,8 +248,9 @@ function ArchivePreview() {
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           {archives.map((item) => (
-            <div key={item} className="rounded-lg border border-white/10 bg-white/[0.025] p-4 font-mono text-sm text-stone-300">
-              {item}
+            <div key={item.title} className="rounded-lg border border-white/10 bg-white/[0.025] p-4">
+              <h3 className="font-mono text-sm text-stone-200">{item.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-stone-500">{item.detail}</p>
             </div>
           ))}
         </div>
@@ -315,10 +261,10 @@ function ArchivePreview() {
 
 function Footer() {
   const links = [
-    { label: 'GitHub', href: 'https://github.com/kentas-tri', icon: Github },
-    { label: 'X', href: 'https://x.com/GuitarsKs', icon: RadioTower },
-    { label: 'YouTube', href: 'https://www.youtube.com/@ksguitars1520', icon: Youtube },
-    { label: 'Mail', href: 'mailto:webmaster@rossolabel.com', icon: Mail }
+    { ...socialLinks[0], icon: Github },
+    { ...socialLinks[1], icon: RadioTower },
+    { ...socialLinks[2], icon: Youtube },
+    { ...socialLinks[3], icon: Mail }
   ];
 
   return (

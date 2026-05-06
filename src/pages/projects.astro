@@ -1,0 +1,35 @@
+---
+import PageShell from '../components/PageShell.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { builds } from '../data/site';
+---
+
+<BaseLayout
+  title="Projects | Hemisphere"
+  description="Active Hemisphere projects across static publishing, documentation workflows, archives, and automation."
+>
+  <PageShell
+    eyebrow="ProjectIndex"
+    title="Active work, kept legible"
+    description="Current builds are tracked as small systems with a visible stage, a useful surface, and a path toward durable publishing."
+    activePath="/projects"
+  >
+    <section class="mx-auto grid w-full max-w-7xl gap-4 px-5 py-10 sm:px-8 lg:grid-cols-2">
+      {
+        builds.map((build) => (
+          <article class="rounded-lg border border-white/10 bg-white/[0.025] p-5 transition hover:border-white/20 hover:bg-white/[0.04]">
+            <div class="mb-6 flex items-center justify-between gap-4 border-b border-white/10 pb-4">
+              <p class="font-mono text-xs uppercase tracking-[0.16em] text-stone-500">{build.stage}</p>
+              <span class="rounded border border-white/10 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500">
+                {build.accent}
+              </span>
+            </div>
+            <h2 class="text-xl font-semibold text-stone-100">{build.title}</h2>
+            <p class="mt-2 font-mono text-sm text-stone-500">{build.meta}</p>
+            <p class="mt-5 text-sm leading-7 text-stone-400">{build.summary}</p>
+          </article>
+        ))
+      }
+    </section>
+  </PageShell>
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import PageShell from '../components/PageShell.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { notes } from '../data/site';
+---
+
+<BaseLayout
+  title="Notes | Hemisphere"
+  description="Technical notes, design thinking, and build logs from Hemisphere."
+>
+  <PageShell
+    eyebrow="NotesFeed"
+    title="Notes as working memory"
+    description="Short records for design decisions, publishing infrastructure, and AI-assisted workflows."
+    activePath="/notes"
+  >
+    <section class="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8">
+      <div class="divide-y divide-white/10 rounded-lg border border-white/10 bg-white/[0.025]">
+        {
+          notes.map((note) => (
+            <article class="grid gap-4 p-5 md:grid-cols-[8rem_1fr_auto] md:items-start">
+              <time class="font-mono text-xs text-stone-500">{note.date}</time>
+              <div>
+                <h2 class="text-lg font-semibold text-stone-100">{note.title}</h2>
+                <p class="mt-3 text-sm leading-7 text-stone-500">{note.excerpt}</p>
+              </div>
+              <span class="w-fit rounded border border-white/10 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-stone-500">
+                {note.tag}
+              </span>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </PageShell>
+</BaseLayout>

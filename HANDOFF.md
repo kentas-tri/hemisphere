@@ -71,7 +71,14 @@ The Astro site has been initialized in `/home/kentas/Hemisphere`.
 Important files:
 
 - `src/components/LabHome.tsx`
+- `src/components/PageShell.astro`
+- `src/data/site.ts`
 - `src/pages/index.astro`
+- `src/pages/projects.astro`
+- `src/pages/systems.astro`
+- `src/pages/notes.astro`
+- `src/pages/archive.astro`
+- `src/pages/contact.astro`
 - `src/layouts/BaseLayout.astro`
 - `src/styles/global.css`
 - `public/favicon.svg`
@@ -118,6 +125,18 @@ Important files:
 7. Footer
    - GitHub / X / YouTube / Mail
 
+## Added Routes
+
+The CommandPalette now links to real Astro routes with GitHub Pages-safe base paths:
+
+- `/projects/`
+- `/systems/`
+- `/notes/`
+- `/archive/`
+- `/contact/`
+
+Shared homepage and page data lives in `src/data/site.ts`.
+
 ## Design Direction
 
 - Black background
@@ -147,6 +166,13 @@ Footer links:
 - `660811a` Align GitHub Pages base path
 - `2267e0a` Create Hemisphere lab homepage
 
+## Latest Local Changes
+
+- Added shared route/content data in `src/data/site.ts`.
+- Added reusable lower-page shell in `src/components/PageShell.astro`.
+- Added first-pass lower pages for projects, systems, notes, archive, and contact.
+- Updated homepage navigation from section anchors to real routes.
+
 ## Known Notes
 
 GitHub Actions deploy previously failed with 404 because GitHub Pages had not yet been enabled.
@@ -160,4 +186,3 @@ Settings -> Pages -> Source: GitHub Actions
 Then rerun the workflow.
 
 The Node.js 20 deprecation warning in Actions was not the deployment failure cause.
-

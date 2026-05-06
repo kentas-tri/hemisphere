@@ -1,0 +1,34 @@
+---
+import PageShell from '../components/PageShell.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { socialLinks } from '../data/site';
+---
+
+<BaseLayout
+  title="Contact | Hemisphere"
+  description="Contact channels for Hemisphere and Kentas."
+>
+  <PageShell
+    eyebrow="ContactChannel"
+    title="Open channels"
+    description="For collaboration, site notes, archive questions, and engineering work around media systems."
+    activePath="/contact"
+  >
+    <section class="mx-auto grid w-full max-w-7xl gap-4 px-5 py-10 sm:px-8 md:grid-cols-2">
+      {
+        socialLinks.map((link) => (
+          <a
+            href={link.href}
+            rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+            class="group rounded-lg border border-white/10 bg-white/[0.025] p-5 transition hover:border-signal-cyan/45 hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-signal-cyan/50"
+          >
+            <span class="font-mono text-xs uppercase tracking-[0.16em] text-stone-500">{link.label}</span>
+            <span class="mt-4 block break-words text-base text-stone-100 group-hover:text-signal-cyan">
+              {link.href.replace('mailto:', '')}
+            </span>
+          </a>
+        ))
+      }
+    </section>
+  </PageShell>
+</BaseLayout>

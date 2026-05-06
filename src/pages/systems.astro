@@ -1,0 +1,61 @@
+---
+import PageShell from '../components/PageShell.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { stack } from '../data/site';
+
+const layers = [
+  {
+    title: 'Public surface',
+    detail: 'Astro pages, React components, Tailwind styling, and static GitHub Pages output.'
+  },
+  {
+    title: 'Build memory',
+    detail: 'Handoff files, notes, and session summaries that keep decisions recoverable between iterations.'
+  },
+  {
+    title: 'Archive layer',
+    detail: 'Legacy media and older projects preserved below the main lab identity.'
+  }
+];
+---
+
+<BaseLayout
+  title="Systems | Hemisphere"
+  description="A systems map for the Hemisphere site, stack, archive layer, and build memory."
+>
+  <PageShell
+    eyebrow="SystemsMap"
+    title="A compact map of the working surface"
+    description="The site is intentionally static at the public edge, with room for documentation workflows and archive modernization behind it."
+    activePath="/systems"
+  >
+    <section class="mx-auto grid w-full max-w-7xl gap-8 px-5 py-10 sm:px-8 lg:grid-cols-[0.85fr_1.15fr]">
+      <div>
+        <h2 class="border-b border-white/10 pb-4 text-xl font-semibold text-stone-100">Stack</h2>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          {
+            stack.map((item) => (
+              <div class="flex min-h-20 items-center rounded-lg border border-white/10 bg-graphite-850/70 p-4">
+                <span class="font-mono text-sm text-stone-200">{item}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h2 class="border-b border-white/10 pb-4 text-xl font-semibold text-stone-100">Layers</h2>
+        <div class="mt-4 divide-y divide-white/10 rounded-lg border border-white/10 bg-white/[0.025]">
+          {
+            layers.map((layer) => (
+              <article class="grid gap-3 p-5 md:grid-cols-[10rem_1fr]">
+                <h3 class="font-mono text-sm text-stone-200">{layer.title}</h3>
+                <p class="text-sm leading-7 text-stone-500">{layer.detail}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </PageShell>
+</BaseLayout>

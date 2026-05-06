@@ -1,0 +1,28 @@
+---
+import PageShell from '../components/PageShell.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { archives } from '../data/site';
+---
+
+<BaseLayout
+  title="Archive | Hemisphere"
+  description="Quiet archive layer for older music, video, web experiments, travel logs, and legacy media notes."
+>
+  <PageShell
+    eyebrow="ArchiveLayer"
+    title="Past work, preserved without taking over"
+    description="The archive keeps older Hemisphere and rossolabel.com material reachable while the main surface moves toward creative engineering."
+    activePath="/archive"
+  >
+    <section class="mx-auto grid w-full max-w-7xl gap-4 px-5 py-10 sm:px-8 md:grid-cols-2">
+      {
+        archives.map((item) => (
+          <article class="rounded-lg border border-white/10 bg-white/[0.025] p-5">
+            <h2 class="font-mono text-base text-stone-100">{item.title}</h2>
+            <p class="mt-4 text-sm leading-7 text-stone-500">{item.detail}</p>
+          </article>
+        ))
+      }
+    </section>
+  </PageShell>
+</BaseLayout>

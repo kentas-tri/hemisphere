@@ -1,0 +1,66 @@
+---
+import { commandItems, sitePath, socialLinks } from '../data/site';
+
+const { eyebrow, title, description, activePath = '' } = Astro.props;
+---
+
+<main>
+  <header class="border-b border-white/10">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 py-6 sm:px-8">
+      <nav class="flex flex-wrap items-center justify-between gap-4" aria-label="Primary">
+        <a href={sitePath()} class="font-mono text-xs uppercase tracking-[0.24em] text-stone-300">
+          Hemisphere
+        </a>
+        <div class="flex flex-wrap gap-2">
+          {
+            commandItems.map((item) => (
+              <a
+                href={sitePath(item.path)}
+                aria-current={activePath === item.path ? 'page' : undefined}
+                class:list={[
+                  'rounded-md border px-3 py-2 font-mono text-[11px] uppercase tracking-[0.14em] transition focus:outline-none focus:ring-2 focus:ring-signal-cyan/50',
+                  activePath === item.path
+                    ? 'border-signal-cyan/50 bg-signal-cyan/10 text-stone-50'
+                    : 'border-white/10 text-stone-500 hover:border-white/20 hover:text-stone-200'
+                ]}
+              >
+                {item.path}
+              </a>
+            ))
+          }
+        </div>
+      </nav>
+
+      <div class="grid gap-5 py-10 md:grid-cols-[0.72fr_1fr] md:items-end">
+        <p class="font-mono text-xs uppercase tracking-[0.18em] text-signal-cyan/80">{eyebrow}</p>
+        <div>
+          <h1 class="max-w-4xl text-4xl font-semibold leading-tight text-stone-50 sm:text-6xl">{title}</h1>
+          <p class="mt-5 max-w-3xl text-base leading-7 text-stone-400 sm:text-lg">{description}</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <slot />
+
+  <footer class="mt-12 border-t border-white/10">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-5 py-8 sm:px-8 md:flex-row md:items-center md:justify-between">
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-stone-500">
+        Creative Engineering / Media Systems Lab
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {
+          socialLinks.map((link) => (
+            <a
+              href={link.href}
+              rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+              class="rounded-md border border-white/10 px-3 py-2 text-sm text-stone-300 transition hover:border-signal-cyan/45 hover:text-stone-50 focus:outline-none focus:ring-2 focus:ring-signal-cyan/50"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </footer>
+</main>
