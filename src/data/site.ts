@@ -97,13 +97,17 @@ export const socialLinks = [
 ] as const;
 
 export function sitePath(path = '/') {
-  const base = import.meta.env.BASE_URL;
+  const base = import.meta.env.BASE_URL.endsWith('/')
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
   const normalized = path.startsWith('/') ? path.slice(1) : path;
   return normalized ? `${base}${normalized.replace(/\/$/, '')}/` : base;
 }
 
 export function assetPath(path: string) {
-  const base = import.meta.env.BASE_URL;
+  const base = import.meta.env.BASE_URL.endsWith('/')
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
   const normalized = path.startsWith('/') ? path.slice(1) : path;
   return `${base}${normalized}`;
 }
